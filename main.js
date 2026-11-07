@@ -22,3 +22,19 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealElements.forEach((el) => revealObserver.observe(el));
+
+// Direct APK download handler without tab redirection
+document.querySelectorAll(".download-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const downloadUrl = btn.getAttribute("href");
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = downloadUrl;
+    document.body.appendChild(iframe);
+    setTimeout(() => {
+      document.body.removeChild(iframe);
+    }, 60000);
+  });
+});
+

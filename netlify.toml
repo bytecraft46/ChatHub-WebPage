@@ -1,0 +1,8 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/download"
+  to = "https://github.com/bytecraft46/ChatHub-APKS/releases/download/v1.0/ChatHub-source.apk"
+  status = 302
